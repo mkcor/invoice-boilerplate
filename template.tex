@@ -75,8 +75,8 @@ $endif$
 \hypersetup
 {
   pdfauthor={$author$},
-  pdfsubject=Invoice Nr. $invoice-nr$,
-  pdftitle=Invoice Nr. $invoice-nr$,
+  pdfsubject=Invoice from Marianne Corvellec,
+  pdftitle=Invoice \#$invoice-nr$,
   linkcolor=blue,
   citecolor=blue,
   filecolor=black,
@@ -92,31 +92,34 @@ $endif$
 % DOCUMENT
 %--------------------------------
 \begin{document}
-\small
-\textsc{\textbf{$author$}}
-$for(from)$
-\textasciitilde{} \textsc{$from$}
-$endfor$
-
-\vspace{1em}
-
-\normalsize \sffamily
-$for(to)$
-$to$\\
-$endfor$
-
-\vspace{6em}
-
 \begin{flushright}
   \small
-  $city$, \today
+    \textbf{Contractor invoice}\\
+    Invoice number: $invoice-nr$\\
+    Invoice date: \today\\
+    Due date:
 \end{flushright}
 
 \vspace{1em}
 
+\textbf{Payable to:}\\
+\textsc{\textbf{$author$}}\\
+$for(from)$
+  $from$\\
+$endfor$
 
-\section*{\textsc{Invoice} \textsc{\#$invoice-nr$}}
-\footnotesize
+\vspace{1em}
+
+\textbf{Bill to:}\\
+$for(to)$
+  $to$\\
+$endfor$
+
+\vspace{6em}
+
+
+\section*{\textbf{Invoice} \textbf{\#$invoice-nr$}}
+\normalsize \sffamily
 \newcounter{pos}
 \setcounter{pos}{0}
 \STautoround*{2} % Get spreadtab to always display the decimal part
@@ -124,7 +127,7 @@ $if(commasep)$\STsetdecimalsep{,}$endif$ % Use comma as decimal separator
 
 \begin{spreadtab}{{tabular}[t t t]{lp{8.2cm}r}}
   \hdashline[1pt/1pt]
-  @ \noalign{\vskip 2mm} \textbf{\# hours} & @ \textbf{Description} & @ \textbf{Prices in $currency$} \\ \hline
+  @ \noalign{\vskip 2mm} \textit{\# hours} & @ \textit{Description} & @ \textit{Price} \\ \hline
       $for(service)$ @ \noalign{\vskip 2mm} \refstepcounter{pos} \thepos 
         & @ $service.description$ 
         $if(service.details)$\newline \begin{itemize} 
