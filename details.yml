@@ -25,26 +25,22 @@ service:
   price: 65.00
 
 closingnote: |
-  Please transfer the due amount to the following bank account within the next 14 days:
+  Please wire transfer the total amount to the following bank account:
    
     Mustermann GmbH  
     Kreditinstitut: Deutsche Postbank AG  
     IBAN: DE18 3601 0043 9999 9999 99  
     BIC: PBNKDEFF  
 
-    We really appreciate your business and look forward to future projects together.
-
-    Best regards,
-
 # Invoice settings
-currency: EUR
+currency: USD
 # commasep: true
-lang: en-GB
+lang: en-CA
 
 # Typography and layout
 seriffont: Linux Libertine Display O
 sansfont: Arundina Sans
-fontsize: 10pt
-geometry: a4paper, left=43mm, right=43mm, top=51mm, bottom=17mm
+fontsize: 12pt
+geometry: a4paper, left=35mm, right=30mm, top=25mm, bottom=17mm
 # letterhead: true # To include personalized letterheads
 ---
