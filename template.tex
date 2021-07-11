@@ -97,12 +97,12 @@ $endif$
     \textbf{Contractor invoice}\\
     Invoice number: $invoice-nr$\\
     Invoice date: \today\\
-    Due date:
+    Due date: $duedate$
 \end{flushright}
 
 \vspace{1em}
 
-\textbf{Payable to:}\\
+\textbf{Pay to:}\\
 \textsc{\textbf{$author$}}\\
 $for(from)$
   $from$\\
@@ -115,20 +115,19 @@ $for(to)$
   $to$\\
 $endfor$
 
-\vspace{6em}
+\vspace{5em}
 
 
 \section*{\textbf{Invoice} \textbf{\#$invoice-nr$}}
+The hours worked fall under project ABC.
 \normalsize \sffamily
-\newcounter{pos}
-\setcounter{pos}{0}
 \STautoround*{2} % Get spreadtab to always display the decimal part
 $if(commasep)$\STsetdecimalsep{,}$endif$ % Use comma as decimal separator
 
 \begin{spreadtab}{{tabular}[t t t]{lp{8.2cm}r}}
   \hdashline[1pt/1pt]
   @ \noalign{\vskip 2mm} \textit{\# hours} & @ \textit{Description} & @ \textit{Price} \\ \hline
-      $for(service)$ @ \noalign{\vskip 2mm} \refstepcounter{pos} \thepos 
+      $for(service)$ @ \noalign{\vskip 2mm} $service.hours$
         & @ $service.description$ 
         $if(service.details)$\newline \begin{itemize} 
           $for(service.details)$\scriptsize \item $service.details$ 
@@ -138,7 +137,7 @@ $if(commasep)$\STsetdecimalsep{,}$endif$ % Use comma as decimal separator
     @ & @ \multicolumn{1}{r}{Subtotal:}                & :={sum(c1:[0,-1])} \\ \hhline{~~-}
     @ & @ \multicolumn{1}{r}{VAT $VAT$\%:}               & $VAT$/100*[0,-1] \\ \hhline{~~-}
   $endif$
-  @ & @ \multicolumn{1}{r}{\textbf{Total:}}   & \textbf{:={$if(VAT)$[0,-1]+[0,-2]$else$sum(c1:[0,-1])$endif$}} \\ \hhline{~~-}
+    @ & @ \multicolumn{1}{r}{\textbf{Total ($currency$):}}   & \textbf{:={$if(VAT)$[0,-1]+[0,-2]$else$sum(c1:[0,-1])$endif$}} \\ \hhline{~~-}
 \end{spreadtab}
 
 

@@ -1,36 +1,43 @@
 ---
-invoice-nr: 2015-11-04
-author: Max Mustermann
-city: Musterstadt
+invoice-nr: 20210715
+author: Marianne Corvellec
+duedate: July 31, 2021
 from:
-- Musterstraße 37
-- 12345 Musterstadt
+- Street address
+- City
+- France
+- SIRET
 to:
-- Erika Mustermann
-- Musterallee 1
-- 12345 Musterstadt
-- Germany
-VAT: 20
+- Client
+- Street address
+- City
+- USA
 service:
-- description: The first service provided
-  price: 320.00
+- description: Manage community
+  hours: 3
+  price: 375.00
   details:
-- description: And another one, with a list of details
-  price: 245.00
+- description: Review pull requests
+  hours: 4
+  price: 300.00
+- description: Add new measure
+  hours: 5
+  price: 375.00
   details:
-    - Some more detailed explanation
-    - of the service provided
-    - Looking good
-- description: The last service provided
-  price: 65.00
+    - Add function
+    - Generalize function to nD
+    - Add gallery example
 
 closingnote: |
   Please wire transfer the total amount to the following bank account:
    
-    Mustermann GmbH  
-    Kreditinstitut: Deutsche Postbank AG  
+    Bank name: Deutsche Postbank AG  
     IBAN: DE18 3601 0043 9999 9999 99  
     BIC: PBNKDEFF  
+
+    Note that the invoice currency (i.e., US dollar) is not the same
+    as the home currency (i.e., euro) of the bank account I’ve provided
+    information for.
 
 # Invoice settings
 currency: USD
@@ -38,7 +45,7 @@ currency: USD
 lang: en-CA
 
 # Typography and layout
-seriffont: Linux Libertine Display O
+seriffont: Linux Libertine O
 sansfont: Arundina Sans
 fontsize: 12pt
 geometry: a4paper, left=35mm, right=30mm, top=25mm, bottom=17mm
